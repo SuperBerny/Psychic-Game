@@ -37,7 +37,7 @@ function randomLetter() {
 
 
 // this starts the game
-document.onkeyup = function () {
+document.onkeyup = function (event) {
   var userGuess = String.fromCharCode(event.keyCode).
   toLowerCase();
 
@@ -48,20 +48,20 @@ function randomLetter() {
   hidden = alphabent[index];
 
 
-if (userGuess = randomLetter) {
+if (userGuess === randomLetter) {
 }
-  if ((userGuess = randomLetter)){
+  if ((userGuess === randomLetter)){
   wins++;
   alert("Wins: " + wins);
-  } else if((userGuess != randomLetter)) {
+  } else if((userGuess !== randomLetter)) {
     guesses--;
-    alert("Guesses Left: " + guesses);
-  } else (guesses = 0) 
+    alert(("Guesses Left: " + guesses));
+  } else if (guesses === 0) {
     losses++;
     guesses = 10;
     alert("Losses: " + losses);
-  };
-
+  }
+}
 
 
 </script>
