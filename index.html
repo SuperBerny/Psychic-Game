@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- I want the computer to pick a random letter, but not to display it.
+  I want the user to guess a letter.
+  I want to display letters guessed on the webpage.
+  I want the user to have a limited number of guesses before they lose.
+  I want to display the wins and losses on the page. -->
+
+<script type ="text/javascript">
+
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  var guesses = 10;
+  var wins = 0;
+  var losses = 0;
+  var attemps =[];
+  // var randomLetter = getRandomLetter(alphabet);
+
+
+//this function is the computer's generated random letter from the alphabet array
+
+function randomLetter() {
+  var randomLetter = (Math.floor(Math.random * alphabet.length))
+  hidden = alphabent[index];
+}
+
+
+//this function captures which key is pressed and logs it into the console.
+// the .toLowerCase*(); will take all keys entered in and make them lowercase.
+
+
+// this starts the game
+document.onkeyup = function () {
+  var userGuess = String.fromCharCode(event.keyCode).
+  toLowerCase();
+
+console.log(userGuess);
+
+function randomLetter() {
+  var randomLetter = (Math.floor(Math.random * alphabet.length))
+  hidden = alphabent[index];
+}
+
+
+if (userGuess = randomLetter) {
+  wins++;
+  alert("Wins: " + wins);
+};
+
+if (userGuess != randomLetter) {
+  guesses--;
+  alert("Guesses Left " + guesses);
+};
+
+if (guesses == 0) {
+  losses++;
+  guesses = 10;
+  alert("Losses " + losses);
+};
+
+
+} // this bracket closes the document.onkeyup at the top.
+
+
+
+</script>
+
+
+
+  
+</body>
+</html>
