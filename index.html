@@ -14,59 +14,64 @@
   I want the user to have a limited number of guesses before they lose.
   I want to display the wins and losses on the page. -->
 
-<script type ="text/javascript">
+ <script type="text/javascript">
 
-  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  var guesses = 10;
-  var wins = 0;
-  var losses = 0;
-  var attemps =[];
-  // var randomLetter = getRandomLetter(alphabet);
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var guesses;
+var wins = 0;
+var losses = 0;
+var randomLetter;
 
 
 //this function is the computer's generated random letter from the alphabet array
 
-function randomLetter() {
-  var randomLetter = (Math.floor(Math.random * alphabet.length))
-  hidden = alphabent[index];
-}
+// function randomLetter() {
+//   var randomLetter = (Math.floor(Math.random * alphabet.length))
+//   hidden = alphabent[index];
+// }
 
 
 //this function captures which key is pressed and logs it into the console.
 // the .toLowerCase*(); will take all keys entered in and make them lowercase.
 
 
+
+
+
+function reset (){
+    randomLetter = alphabet[(Math.floor(Math.random()*alphabet.length))];
+    guesses = 3;
+}
+
+reset();
+
 // this starts the game
 document.onkeyup = function (event) {
-  var userGuess = String.fromCharCode(event.keyCode).
-  toLowerCase();
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-console.log(userGuess);
+    console.log(userGuess);
+  
+    if (userGuess === randomLetter) {
+      wins++;
+      reset();
+      (alert("Win: " + wins));
+    } else {
+        guesses--;
+        alert(("Guesses Left: " + guesses));
+    } 
+     if (guesses === 0) {
+        losses++;
+        reset();
+        alert("Losses: " + losses);
+    }
 
-function randomLetter() {
-  var randomLetter = (Math.floor(Math.random * alphabet.length))
-  hidden = alphabent[index];
+    
 
+    // need to make a reset function inside and outside of the keyup event
 
-if (userGuess === randomLetter) {
 }
-  if ((userGuess === randomLetter)){
-  wins++;
-  alert("Wins: " + wins);
-  } else if((userGuess !== randomLetter)) {
-    guesses--;
-    alert(("Guesses Left: " + guesses));
-  } else if (guesses === 0) {
-    losses++;
-    guesses = 10;
-    alert("Losses: " + losses);
-  }
-}
-
 
 </script>
-
-
 
   
 </body>
