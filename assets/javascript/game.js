@@ -3,18 +3,20 @@ var guesses;
 var wins = 0;
 var losses = 0;
 var randomLetter;
+var lettersGuessed = document.getElementById("guessed");
+var guessText = "";
 
 
 function reset (){
     randomLetter = alphabet[(Math.floor(Math.random()*alphabet.length))];
-    guesses = 3;
+    guesses = 10;
+    guessText = "";
 }
 reset();
 
 // this starts the game
 document.onkeyup = function (event) {
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
     console.log(userGuess);
   
     if (userGuess === randomLetter) {
@@ -30,14 +32,14 @@ document.onkeyup = function (event) {
         reset();
         // alert("Losses: " + losses);
     }
+    
+    guessText = guessText +(guessText.length > 0 ? ', ' : '')+ userGuess;
 
     var html = "<p>Wins: " + wins + "</p>" +
                "<p>Losses: " + losses + "</p>" +
-               "<p>Guesses: " + guesses + "</p>" +
-               "<p>Letters Guessed: " + userGuess + "," + "</p>";
+               "<p>Guesses Left: " + guesses + "</p>" +
+               "<p>Letters Guessed: "+ guessText +"</p>";
                
-        document.querySelector("#game").innerHTML = html;
-
-    element.innerHTML = element.innerHTML + userGuess
+    document.querySelector("#game").innerHTML = html;
 }
 
