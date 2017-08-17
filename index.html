@@ -14,44 +14,11 @@
   I want the user to have a limited number of guesses before they lose.
   I want to display the wins and losses on the page. -->
 
- <script type="text/javascript">
-
-var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var guesses;
-var wins = 0;
-var losses = 0;
-var randomLetter;
-
-
-function reset (){
-    randomLetter = alphabet[(Math.floor(Math.random()*alphabet.length))];
-    guesses = 3;
-}
-reset();
-
-// this starts the game
-document.onkeyup = function (event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-    console.log(userGuess);
-  
-    if (userGuess === randomLetter) {
-      wins++;
-      reset();
-      (alert("Win: " + wins));
-    } else {
-        guesses--;
-        alert(("Guesses Left: " + guesses));
-    } 
-     if (guesses === 0) {
-        losses++;
-        reset();
-        alert("Losses: " + losses);
-    }
-}
-
-</script>
-
-  
+ <script src="assets/javascript/game.js"></script> 
+<div id="no-touch">
+   <h1>I'm thinking of a number. Can you guess what it is?
+  <div>
+ <div id="game"></div>
+ 
 </body>
 </html>
