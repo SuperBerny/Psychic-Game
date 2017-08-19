@@ -8,38 +8,38 @@ var guessText = "";
 
 
 function reset (){
-    randomLetter = alphabet[(Math.floor(Math.random()*alphabet.length))];
-    guesses = 10;
-    guessText = "";
+  randomLetter = alphabet[(Math.floor(Math.random()*alphabet.length))];
+  guesses = 10;
+  guessText = "";
 }
 reset();
 
 // this starts the game
 document.onkeyup = function (event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log(userGuess);
-  
-    if (userGuess === randomLetter) {
-      wins++;
-      reset();
-    //   (alert("Win: " + wins));
-    } else {
-        guesses--;
-        // alert(("Guesses Left: " + guesses));
-    } 
-     if (guesses === 0) {
-        losses++;
-        reset();
-        // alert("Losses: " + losses);
-    }
-    
-    guessText = guessText +(guessText.length > 0 ? ', ' : '')+ userGuess;
+  var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+  console.log(userGuess);
 
-    var html = "<p>Wins: " + wins + "</p>" +
-               "<p>Losses: " + losses + "</p>" +
-               "<p>Guesses Left: " + guesses + "</p>" +
-               "<p>Letters Guessed: "+ guessText +"</p>";
-               
-    document.querySelector("#game").innerHTML = html;
+  if (userGuess === randomLetter) {
+    wins++;
+    reset();
+  //   (alert("Win: " + wins));
+  } else {
+      guesses--;
+      // alert(("Guesses Left: " + guesses));
+  } 
+    if (guesses === 0) {
+      losses++;
+      reset();
+      // alert("Losses: " + losses);
+  }
+  
+  guessText = guessText +(guessText.length > 0 ? ', ' : '')+ userGuess;
+
+  var html = "<p>Wins: " + wins + "</p>" +
+              "<p>Losses: " + losses + "</p>" +
+              "<p>Guesses Left: " + guesses + "</p>" +
+              "<p>Letters Guessed: "+ guessText +"</p>";
+              
+  document.querySelector("#game").innerHTML = html;
 }
 
